@@ -1,0 +1,21 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .title{
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .editors{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  & textarea{
+    width: 45%;
+    height: 700px;
+  }
+}

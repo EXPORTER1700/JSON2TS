@@ -1,0 +1,13 @@
+html {
+    --theme-color: #0064c7;
+}
+
+html[data-theme = light] {
+    --background-color: lightgray;
+    --text-color: black;
+}
+
+html[data-theme = dark] {
+    --text-color: white;
+    --background-color: black;
+}
