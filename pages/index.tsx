@@ -1,27 +1,16 @@
 import type { NextPage } from 'next';
 import { useMemo, useState } from 'react';
-import { parseJsonToInterfaces } from 'src/utils/parser';
-import classes from 'styles/HomePage.module.scss';
 import Editor, { OnChange } from '@monaco-editor/react';
+import { parseJsonToInterfaces } from 'src/utils/parser';
 import { useAppSelector } from 'src/hooks/useAppSelector';
 import { ThemeTypes } from 'src/store/theme';
 import { useCheckMobile } from 'src/hooks/useCheckMobile';
-
-const initialState = `{
-  "info": {
-    "firstName": "John",
-    "lastName": "Dou"
-  },
-  "work": {
-    "company": "Banda Pixels",
-    "post": "Front-End Developer"
-  },
-  "tags": ["developer", "front-end"]
-}`;
+import { initialJson } from 'src/constants/json';
+import classes from 'styles/HomePage.module.scss';
 
 const Home: NextPage = () => {
   const [response, setResponse] = useState(() =>
-    parseJsonToInterfaces(JSON.parse(initialState)),
+    parseJsonToInterfaces(JSON.parse(initialJson)),
   );
   const { theme } = useAppSelector((state) => state.themeReducer);
   const isMobile = useCheckMobile();
@@ -54,7 +43,7 @@ const Home: NextPage = () => {
           width={isMobile ? '100%' : '48%'}
           theme={theme === ThemeTypes.LIGHT ? 'light' : 'vs-dark'}
           defaultLanguage={'json'}
-          defaultValue={initialState}
+          defaultValue={initialJson}
           onChange={handleEditorChange}
         />
         <Editor
