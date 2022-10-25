@@ -1,7 +1,7 @@
 export const initialJson = `{
   "info": {
     "firstName": "John",
-    "lastName": "Dou"
+    "lastName": "Doe"
   },
   "work": {
     "company": "Banda Pixels",
